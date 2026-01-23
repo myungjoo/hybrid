@@ -174,7 +174,7 @@ else
   COMPUTE_HOST="\$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4 || true)"
 fi
 if [[ -z "\${COMPUTE_HOST}" ]]; then
-  COMPUTE_HOST="\$(hostname -I | awk '{print $1}' || true)"
+  COMPUTE_HOST="\$(hostname -I | awk '{print \$1}' || true)"
 fi
 if [[ -z "\${COMPUTE_HOST}" ]]; then
   echo "Failed to determine compute host IP." >&2
