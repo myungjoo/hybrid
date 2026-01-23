@@ -151,9 +151,9 @@ deploy_compute() {
 #!/bin/bash
 ## Do this after the reboot and kernel update.
 # Execute one time only!
-insmod /usr/lib/modules/$(uname -r)/kernel/drivers/virt/nitro_enclaves/nitro_enclaves.ko
+insmod /usr/lib/modules/\$(uname -r)/kernel/drivers/virt/nitro_enclaves/nitro_enclaves.ko
 systemctl enable --now docker
-usermod -aG docker $(whoami)
+usermod -aG docker \$(whoami)
 
 git clone https://github.com/nnstreamer/aws-nitro-enclaves-cli.git --depth 1 -b ubuntu-22.04
 
