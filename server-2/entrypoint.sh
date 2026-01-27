@@ -122,7 +122,7 @@ start_ollama() {
 
   log "Starting Ollama (${OLLAMA_BIN}) with models at ${OLLAMA_MODELS}"
   OLLAMA_HOST="${OLLAMA_HOST}" OLLAMA_MODELS="${OLLAMA_MODELS}" \
-    "${OLLAMA_BIN}" serve >/var/log/ollama.log 2>&1 &
+    "${OLLAMA_BIN}" serve 2>&1 | tee /var/log/ollama.log &
   local ollama_pid=$!
   log_pid_status "ollama" "${ollama_pid}"
 
